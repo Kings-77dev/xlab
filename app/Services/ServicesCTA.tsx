@@ -19,7 +19,7 @@ export default function ServicesCTA() {
         {/* Button */}
         <Link
           href="/contact"
-          className="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-accent-dark transition"
+          className="inline-block bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-dark transition"
         >
           Book a Free Consultation
         </Link>

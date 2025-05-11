@@ -83,13 +83,13 @@ export default function Hero() {
             <Image src="/screenshot-2.png" fill className="object-cover" alt="mockup middle" />
           </motion.div>
           {/* Top */}
-          <motion.div
+          <div
             className="absolute top-0 left-0 w-full h-full bg-gray-200 rounded-xl overflow-hidden"
-            variants={slideInRight}
-            transition={{ delay: 1.1, duration: 0.6 }}
+            // variants={slideInRight}
+            // transition={{ delay: 1.1, duration: 0.6 }}
           >
             <Image src="/screenshot-1.png" fill className="object-cover" alt="mockup top" />
-          </motion.div>
+          </div>
         </div>
       </motion.div>
     </section>

@@ -36,7 +36,7 @@ const features = [
 
 export default function FeatureHighlights() {
   return (
-    <section id="features" className="py-20 px-6 md:px-12 bg-white">
+    <section id="features" className="py-20 px-6 md:px-12 bg-gray-100">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
          {/* Left column */}
                 <div className="space-y-4">

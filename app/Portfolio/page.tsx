@@ -10,8 +10,7 @@ export default function PortfolioPage() {
   return (
     <main className="bg-gray-100">
       <Portfolio />
-      {/* <ProjectGrid /> */}
-      {/* <PortfolioCTA /> */}
+     
     </main>
   );
 }

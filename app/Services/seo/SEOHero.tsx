@@ -1,3 +1,16 @@
+// // components/SEOHero.tsx
+// export default function SEOHero() {
+//     return (
+//       <section id="seo-hero" className="bg-white py-16 px-6 md:px-12 ">
+//         <h1 className="text-4xl md:text-5xl font-bold">Search Engine Optimisation</h1>
+//         <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
+//           Get your site found on Google. We optimize structure, content & speed so you rank higher and drive more traffic.
+//         </p>
+//       </section>
+//     );
+//   }
+
+
 // components/PortfolioHero.tsx
 "use client";
 
@@ -17,7 +30,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function PortfolioHero() {
+export default function SEOHero() {
   return (
     <motion.section
       className="bg-white py-16 px-6 md:px-12"
@@ -33,11 +46,9 @@ export default function PortfolioHero() {
           variants={itemVariants}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold">Portfolio</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">Effective Search Engine Optimisation</h1>
           <p className="mt-2 text-lg text-gray-700 max-w-2xl">
-            A showcase of recent projects where we’ve crafted modern,
-            high-impact websites for small businesses.
-          </p>
+          Get your site found on Google. We optimize structure, content & speed so you rank higher and drive more traffic.          </p>
         </motion.div>
 
         {/* Image Column (static) */}

@@ -60,7 +60,7 @@ export default function HowWeWork() {
         {/* Left column */}
         <motion.div className="space-y-4" variants={itemVariants}>
           <h2 className="text-3xl font-bold">
-            How We Bring Your Website to Life
+            How We Bring <span className="text-primary">Your Website</span> to Life
           </h2>
           <p className="text-gray-700">
             We keep it simple, clear, and client-friendly. Whether you’re
@@ -88,7 +88,7 @@ export default function HowWeWork() {
               className="flex items-start space-x-4"
               variants={itemVariants}
             >
-              <div>{step.icon}</div>
+              <div className="text-primary">{step.icon}</div>
               <div>
                 <h3 className="text-lg font-semibold">{step.title}</h3>
                 <p className="text-gray-600">{step.text}</p>

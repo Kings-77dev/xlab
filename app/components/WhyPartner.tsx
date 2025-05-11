@@ -63,7 +63,7 @@ export default function WhyPartner() {
           {points.map(({ img, title, text }, i) => (
             <motion.div
               key={i}
-              className="flex flex-col items-start space-y-4"
+              className="flex flex-col items-start space-y-4 bg-white border border-gray-300 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
               variants={itemVariants}
               transition={{ duration: 0.6 }}
             >

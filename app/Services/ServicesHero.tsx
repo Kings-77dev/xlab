@@ -8,7 +8,7 @@ export default function ServicesHero() {
         {/* Text Column */}
         <div className="w-full md:w-2/3 space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold">
-            Expert Web Design, Development & SEO Under One Roof
+            Expert UI/UX Design & Web Development Under One Roof
           </h1>
           <p className="mt-2 text-lg text-gray-700 max-w-2xl">
             We create smart, modern websites built to grow your business. From
