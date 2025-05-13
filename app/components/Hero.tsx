@@ -38,7 +38,7 @@ export default function Hero() {
           Your Website.
         </motion.h1>
         <motion.p
-          className="text-lg text-gray-700"
+          className="text-lg "
           variants={fadeInUp}
           transition={{ delay: 0.4, duration: 0.6 }}
         >

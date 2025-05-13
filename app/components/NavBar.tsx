@@ -60,21 +60,21 @@ export default function NavBar() {
             </button>
             {servicesOpen && (
               <div
-                className="absolute top-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 w-48"
+                className="absolute top-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 w-48 z-50"
                 onMouseEnter={openServices}
                 onMouseLeave={closeServices}
               >
                 <Link href="/Services" className="block px-4 py-2 hover:bg-gray-100">
                   All Services
                 </Link>
-                <Link href="/Services#web-design" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/Services/webdesign" className="block px-4 py-2 hover:bg-gray-100">
                   Web Design
                 </Link>
                 <Link href="/Services/seo" className="block px-4 py-2 hover:bg-gray-100">
                   SEO
                 </Link>
                 <Link
-                  href="/Services#web-development"
+                  href="/Services/webdevelopment"
                   className="block px-4 py-2 hover:bg-gray-100"
                 >
                   Web Development
@@ -152,9 +152,9 @@ export default function NavBar() {
               />
             </button>
             {servicesOpen && (
-              <div className="pl-4">
+              <div className="pl-4 ">
                 <Link
-                  href="/Services#web-design"
+                  href="/Services/webdesign"
                   className="block py-2 hover:bg-gray-100"
                 >
                   Web Design
@@ -163,7 +163,7 @@ export default function NavBar() {
                   SEO
                 </Link>
                 <Link
-                  href="/Services#web-development"
+                  href="/Services/webdevelopment"
                   className="block py-2 hover:bg-gray-100"
                 >
                   Web Development
