@@ -2,8 +2,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
+import CanvasBackground from "./CanvasBackground";  // adjust path if needed
 
 // simple variants for fading/ sliding
 const fadeInUp = {
@@ -19,8 +20,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col-reverse md:flex-row items-center px-8 py-16 md:py-28"
-    >
+      className="relative overflow-hidden h-screen flex flex-col-reverse md:flex-row items-center px-8 py-16 md:py-28"
+       >      {/* full‐screen animated canvas, behind all hero content */}
+      <CanvasBackground className="absolute inset-0 -z-10" />
+
       {/* Text column */}
       <motion.div
         className="flex-2 space-y-8"
@@ -30,7 +33,7 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
       >
         <motion.h1
-          className="text-4xl md:text-[65px] font-semibold leading-tight"
+          className="text-4xl md:text-[65px] font-semibold leading-tight border-l-4 border-primary pl-4"
           variants={fadeInUp}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
@@ -38,14 +41,17 @@ export default function Hero() {
           Your Website.
         </motion.h1>
         <motion.p
-          className="text-lg "
+          className="text-lg"
           variants={fadeInUp}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           We design professional, engaging websites that capture your <br />
           brand’s essence and drive customer growth.
         </motion.p>
-        <motion.div variants={fadeInUp} transition={{ delay: 0.6, duration: 0.6 }}>
+        <motion.div
+          variants={fadeInUp}
+          transition={{ delay: 0.6, duration: 0.6 }}
+        >
           <Link href="#cta">
             <button
               type="button"
@@ -67,29 +73,40 @@ export default function Hero() {
       >
         <div className="relative w-64 h-40 md:w-90 md:h-52">
           {/* Bottom */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-0 left-0 w-full h-full bg-gray-200 rounded-xl overflow-hidden transform translate-y-8 translate-x-8"
             variants={slideInRight}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            <Image src="/screenshot-3.png" fill className="object-cover" alt="mockup bottom" />
-          </motion.div>
+            <Image
+              src="/screenshot-3.png"
+              fill
+              className="object-cover"
+              alt="mockup bottom"
+            />
+          </motion.div> */}
           {/* Middle */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-0 left-0 w-full h-full bg-gray-200 rounded-xl overflow-hidden transform translate-y-4 translate-x-4"
             variants={slideInRight}
             transition={{ delay: 0.9, duration: 0.6 }}
           >
-            <Image src="/screenshot-2.png" fill className="object-cover" alt="mockup middle" />
-          </motion.div>
+            <Image
+              src="/screenshot-2.png"
+              fill
+              className="object-cover"
+              alt="mockup middle"
+            />
+          </motion.div> */}
           {/* Top */}
-          <div
-            className="absolute top-0 left-0 w-full h-full bg-gray-200 rounded-xl overflow-hidden"
-            // variants={slideInRight}
-            // transition={{ delay: 1.1, duration: 0.6 }}
-          >
-            <Image src="/screenshot-1.png" fill className="object-cover" alt="mockup top" />
-          </div>
+          {/* <div className="absolute top-0 left-0 w-full h-full bg-gray-200 rounded-xl overflow-hidden">
+            <Image
+              src="/screenshot-1.png"
+              fill
+              className="object-cover"
+              alt="mockup top"
+            />
+          </div> */}
         </div>
       </motion.div>
     </section>

@@ -9,18 +9,21 @@ import FeatureHighlights from "./FeatureHighlights";
 import WhoWeWorkWith from "./WhoWeWorkWith";
 import ProposalCTA from "./ProposalCTA";
 import TestimonialsCarousel from "../Services/TestimonialsCarousel";
+import AboutUsSection from "./AboutUsSection";
+import PortfolioSection from "./Portfolio";
 
 const Home = () => {
   return (
     <main>
       <Hero />
+      <PortfolioSection />
+      <AboutUsSection/>
       <FeatureHighlights />
       <HowWeWork />
       <Services />
       <WhoWeWorkWith />
       <ProposalCTA />
 
-      {/* <Portfolio /> */}
       <WhyPartner />
       <TestimonialsCarousel />
 

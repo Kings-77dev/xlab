@@ -1,16 +1,16 @@
-// app/layout.tsx (or wherever your RootLayout lives)
-import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+// app/layout.tsx
 import "./globals.css";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import type { Metadata } from "next";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // whichever weights you need
+  weight: ["400", "500", "700"],
   variable: "--font-dm-sans",
 });
-
 const dmSerif = DM_Serif_Display({
   subsets: ["latin"],
   weight: ["400"],
@@ -28,15 +28,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <body
-        suppressHydrationWarning
-        className={`${dmSans.variable} ${dmSerif.variable}  antialiased`}
+        className={`${dmSans.variable} ${dmSerif.variable} antialiased`}
       >
-        <NavBar />
-
-        {children}
-        <Footer />
+        {/* ThemeProvider must wrap all client-side theming */}
+        <ThemeProvider
+          attribute="class"               // toggles 'class="light"' / 'class="dark"'
+          defaultTheme="system"           // or 'light' | 'dark'
+          enableSystem                     // respect OS preference
+          disableTransitionOnChange        // avoid flash on theme switch
+        >
+          <NavBar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

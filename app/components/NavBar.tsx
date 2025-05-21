@@ -4,10 +4,18 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import { useTheme } from "next-themes";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+  SunIcon,
+  MoonIcon,
+} from "@heroicons/react/24/solid";
 
 export default function NavBar() {
   const pathname = usePathname() || "";
+  const { theme, setTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const closeTimer = useRef<number | null>(null);
@@ -16,7 +24,6 @@ export default function NavBar() {
     window.clearTimeout(closeTimer.current as number);
     setServicesOpen(true);
   };
-
   const closeServices = () => {
     closeTimer.current = window.setTimeout(() => {
       setServicesOpen(false);
@@ -24,10 +31,9 @@ export default function NavBar() {
   };
 
   const linkClass = (path: string) =>
-    `${
-      pathname === path
-        ? "border-b-2 border-primary text-primary font-medium"
-        : "border-b-2 border-transparent text-gray-900"
+    `${pathname === path
+      ? "border-b-2 border-primary text-primary font-medium"
+      : "border-b-2 border-transparent "
     } hover:text-accent transition`;
 
   return (
@@ -36,12 +42,12 @@ export default function NavBar() {
         {/* Logo */}
         <div className="text-2xl font-bold">
           <Link href="/">
-            <span className="text-primary">LO</span>GO
+            <span className="text-primary">LO</span>&#123;GO&#125;
           </Link>
         </div>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex space-x-8 text-lg items-center">
+        {/* Desktop nav: centered */}
+        <nav className="hidden md:flex flex-1 justify-center space-x-8 text-lg items-center">
           <Link href="/" className={linkClass("/")}>
             Home
           </Link>
@@ -73,10 +79,7 @@ export default function NavBar() {
                 <Link href="/Services/seo" className="block px-4 py-2 hover:bg-gray-100">
                   SEO
                 </Link>
-                <Link
-                  href="/Services/webdevelopment"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
+                <Link href="/Services/webdevelopment" className="block px-4 py-2 hover:bg-gray-100">
                   Web Development
                 </Link>
                 <Link href="/Services#maintenance" className="block px-4 py-2 hover:bg-gray-100">
@@ -93,6 +96,19 @@ export default function NavBar() {
             Contact
           </Link>
         </nav>
+
+        {/* Theme toggle */}
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          aria-label="Toggle light/dark mode"
+          className="hidden md:flex mr-4 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        >
+          {theme === "dark" ? (
+            <SunIcon className="h-6 w-6 text-foreground" />
+          ) : (
+            <MoonIcon className="h-6 w-6 text-foreground" />
+          )}
+        </button>
 
         {/* CTA Button */}
         <Link
@@ -123,21 +139,31 @@ export default function NavBar() {
       >
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
           <div className="text-2xl font-bold">
-            <Link href="/">
-              <span className="text-primary">LO</span>GO
+            <Link href="/" onClick={() => setMobileOpen(false)}>
+              <span className="text-primary">LO</span>&#123;GO&#125;
             </Link>
           </div>
           <button onClick={() => setMobileOpen(false)} className="p-2">
             <XMarkIcon className="h-6 w-6" />
           </button>
         </div>
+
         <nav className="px-6 py-4 space-y-2">
-          <Link href="/" className="block py-3 border-b border-gray-100">
+          <Link
+            href="/"
+            onClick={() => setMobileOpen(false)}
+            className="block py-3 border-b border-gray-100"
+          >
             Home
           </Link>
-          <Link href="/Portfolio" className="block py-3 border-b border-gray-100">
+          <Link
+            href="/Portfolio"
+            onClick={() => setMobileOpen(false)}
+            className="block py-3 border-b border-gray-100"
+          >
             Portfolio
           </Link>
+
           {/* Services accordion */}
           <div className="border-b border-gray-100">
             <button
@@ -152,24 +178,43 @@ export default function NavBar() {
               />
             </button>
             {servicesOpen && (
-              <div className="pl-4 ">
+              <div className="pl-4">
                 <Link
                   href="/Services/webdesign"
+                  onClick={() => {
+                    setServicesOpen(false);
+                    setMobileOpen(false);
+                  }}
                   className="block py-2 hover:bg-gray-100"
                 >
                   Web Design
                 </Link>
-                <Link href="/Services/seo" className="block py-2 hover:bg-gray-100">
+                <Link
+                  href="/Services/seo"
+                  onClick={() => {
+                    setServicesOpen(false);
+                    setMobileOpen(false);
+                  }}
+                  className="block py-2 hover:bg-gray-100"
+                >
                   SEO
                 </Link>
                 <Link
                   href="/Services/webdevelopment"
+                  onClick={() => {
+                    setServicesOpen(false);
+                    setMobileOpen(false);
+                  }}
                   className="block py-2 hover:bg-gray-100"
                 >
                   Web Development
                 </Link>
                 <Link
                   href="/Services#maintenance"
+                  onClick={() => {
+                    setServicesOpen(false);
+                    setMobileOpen(false);
+                  }}
                   className="block py-2 hover:bg-gray-100"
                 >
                   Maintenance & Support
@@ -177,15 +222,40 @@ export default function NavBar() {
               </div>
             )}
           </div>
-          <Link href="/Pricing" className="block py-3 border-b border-gray-100">
+
+          <Link
+            href="/Pricing"
+            onClick={() => setMobileOpen(false)}
+            className="block py-3 border-b border-gray-100"
+          >
             Pricing
           </Link>
-          <Link href="/Contact" className="block py-3 border-b border-gray-100">
+          <Link
+            href="/Contact"
+            onClick={() => setMobileOpen(false)}
+            className="block py-3 border-b border-gray-100"
+          >
             Contact
           </Link>
+
+          {/* Mobile theme toggle */}
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle light/dark mode"
+            className="w-full flex items-center space-x-2 py-3"
+          >
+            {theme === "dark" ? (
+              <SunIcon className="h-5 w-5 text-foreground" />
+            ) : (
+              <MoonIcon className="h-5 w-5 text-foreground" />
+            )}
+            <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+          </button>
+
           <Link
             href="#cta"
-            className="block py-3 bg-primary text-white text-center rounded-lg"
+            onClick={() => setMobileOpen(false)}
+            className="block px-6 py-3 bg-primary text-white text-center rounded-lg"
           >
             Book a Free Call
           </Link>
