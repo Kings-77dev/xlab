@@ -7,7 +7,10 @@
   --foreground: #e4e6e9;
   --color-primary: #ED2A4F;
   --color-secondary: #0d0f12;
-  --color-accent: #0038ff;
+  --color-background: #0d0f12;
+  --color-foreground: #e4e6e9;
+  --color-light: #ccced2;
+  --color-accent: #1A1B1E;
   --font-dm-sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
 
   /* DM Serif Display + Georgia / Cambria / Times New Roman / generic serif */
@@ -28,8 +31,11 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
   --color-primary: #ff6d3a;
+  --color-background: #0d0f12;
+  --color-foreground: #e4e6e9;
   --color-secondary: #0d0f12;
-  --color-accent: #0038ff;
+  --color-accent: #1A1B1E;
+  --color-light: #ccced2;
 }
 
 /* 2) Body (paragraph) text uses DM Sans */

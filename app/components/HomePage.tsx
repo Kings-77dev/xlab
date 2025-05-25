@@ -16,9 +16,13 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <PortfolioSection />
       <AboutUsSection/>
+      <PortfolioSection />
+
+
       <FeatureHighlights />
+
+
       <HowWeWork />
       <Services />
       <WhoWeWorkWith />
