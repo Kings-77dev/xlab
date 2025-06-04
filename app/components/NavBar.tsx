@@ -34,7 +34,7 @@ export default function NavBar() {
     `${pathname === path
       ? "border-b-2 border-primary text-primary font-medium"
       : "border-b-2 border-transparent "
-    } hover:text-accent transition`;
+    } hover:text-primary transition`;
 
   return (
     <header className="border-b border-gray-200">
@@ -106,7 +106,7 @@ export default function NavBar() {
           {theme === "dark" ? (
             <SunIcon className="h-6 w-6 text-foreground" />
           ) : (
-            <MoonIcon className="h-6 w-6 text-foreground" />
+            <MoonIcon className="h-6 w-6 text-background " />
           )}
         </button>
 

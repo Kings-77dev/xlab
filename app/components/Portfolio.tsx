@@ -99,7 +99,7 @@ export default function PortfolioSection() {
     <section id="portfolio" className="py-16 px-6 md:px-12  flex flex-wrap">
   <div className="max-w-8xl md:w-full  rounded-2xl p-4 mx-auto flex flex-col-reverse md:flex-row gap-12 md:gap-12">
     {/* left column - cards 1 & 2 + CTA */}
-    <div className="flex-1 flex flex-col gap-[10vh]">
+    <div className="flex-1 flex flex-col gap-[20vh]">
       {left.map(renderCard)}
 
       {/* CTA */}
@@ -127,11 +127,11 @@ export default function PortfolioSection() {
       <div className="mb-8 md:mb-12">
         <p className="text-sm text-gray-400 mb-1">• Our Work</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          Take a look at our projects
+          Take a look at <br className="hidden md:block" /> our projects
         </h2>
       </div>
 
-      <div className="flex flex-col gap-[10vh]">{right.map(renderCard)}</div>
+      <div className="flex flex-col gap-[20vh]">{right.map(renderCard)}</div>
     </div>
   </div>
 </section>

@@ -37,7 +37,7 @@ export default function TestimonialsCarousel() {
   const next = () => setIndex(i => (i === last ? 0 : i + 1));
 
   return (
-    <section className="relative bg-gray-50 py-16 px-6 md:px-12 overflow-hidden">
+    <section className="relative  py-16 px-6 md:px-12 overflow-hidden">
       {/* Heading */}
       <div className="text-center mb-12 space-y-2">
         <h2 className="text-4xl font-bold">

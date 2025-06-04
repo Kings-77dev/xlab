@@ -11,6 +11,7 @@ import ProposalCTA from "./ProposalCTA";
 import TestimonialsCarousel from "../Services/TestimonialsCarousel";
 import AboutUsSection from "./AboutUsSection";
 import PortfolioSection from "./Portfolio";
+import WhatWereGoodAt from "./WhatWereGoodAt";
 
 const Home = () => {
   return (
@@ -22,13 +23,15 @@ const Home = () => {
 
       <FeatureHighlights />
 
+      <WhatWereGoodAt />
 
       <HowWeWork />
-      <Services />
-      <WhoWeWorkWith />
-      <ProposalCTA />
+      {/* <Services /> */}
+      {/* <WhyPartner /> */}
 
-      <WhyPartner />
+      <WhoWeWorkWith />
+      {/* <ProposalCTA /> */}
+
       <TestimonialsCarousel />
 
       <CTA />
