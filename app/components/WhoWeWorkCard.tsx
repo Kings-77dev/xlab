@@ -128,78 +128,81 @@
 //   );
 // }
 
-
 // components/WhoWeWorkCard.tsx
 import Image from "next/image";
+import { ClockIcon } from "@heroicons/react/24/outline";
 
 interface WhoWeWorkCardProps {
-  /** Numeric index (e.g. 1, 2, 3) — rendered as “01”, “02”, etc. */
   idx: number;
-  /** Card heading text */
   title: string;
-  /** Card descriptive text */
   desc: string;
-  /** Optional right‐side graphic (if you want to pass a custom image) */
   graphicSrc?: string;
+  duration?: string; // e.g. "2–4 Days"
+  img: string; // Added img property
+
 }
 
 export default function WhoWeWorkCard({
-  idx,
   title,
   desc,
   graphicSrc,
+  duration,
+  
 }: WhoWeWorkCardProps) {
   return (
-    <div className="relative flex h-80 w-full max-w-2xl overflow-hidden rounded-2xl bg-[#121212] border border-gray-800">
-      {/** 1) Semi-transparent index in top-left **/}
-      <div className="absolute top-4 left-4 text-2xl font-bold text-white text-opacity-20">
-        {String(idx).padStart(2, "0")}
-      </div>
+    // 1) Outer wrapper: relative, overflow-visible
+    <div className="relative w-full h-80">
+      {/* 2) Glow: negative inset so it bleeds out, blurred */}
+      <div
+        className="absolute -inset-4 rounded-2xl blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(235,192,45,0.5), transparent 70%)",
+        }}
+      />
 
-      {/** 2) Title & description (left half) **/}
-      <div className="flex flex-col justify-between px-8 py-6">
-        <div>
-          <h3 className="text-3xl font-semibold text-white mb-2">
+      {/* 3) Actual card: z-10, can still overflow-hidden internally */}
+      <div className="relative flex w-full h-full rounded-2xl bg-[#111] border border-gray-700 overflow-hidden z-10">
+        {/* Left column */}
+        <div className="flex-1 max-w-md px-10 py-8">
+          <h3 className="text-3xl font-semibold text-white mb-4">
             {title}
           </h3>
-          <p className="text-gray-200 leading-relaxed">
-            {desc}
-          </p>
+          <p className="text-gray-300 leading-relaxed mb-6">{desc}</p>
+          {duration && (
+            <span className="inline-flex items-center space-x-2 bg-gray-800/50 border border-gray-600 rounded-full px-4 py-2 text-sm text-gray-200">
+              <ClockIcon className="h-5 w-5" />
+              <span>{duration}</span>
+            </span>
+          )}
         </div>
-        {/** You can add a “time badge” or any extra footer here if needed **/}
-      </div>
 
-      {/** 3) Right-side “glow” graphic (absolutely positioned) **/}
-      <div className="absolute right-0 top-0 bottom-0 flex items-center justify-center pr-8">
-        {graphicSrc ? (
-          // If a custom graphic URL is passed, render it here:
-          <div className="relative h-40 w-40">
-            <Image
-              src={graphicSrc}
-              alt={`${title} graphic`}
-              fill
-              className="object-contain"
-            />
-          </div>
-        ) : (
-          // Otherwise, render a placeholder glowing squares as an example:
-          <div className="relative h-40 w-40">
+        {/* Right graphic */}
+        <div className="absolute right-0 top-1/2 z-20 flex h-40 w-40 -translate-y-1/2 items-center justify-center pr-8">
+          {graphicSrc ? (
+            <div className="relative h-full w-full">
+              <Image
+                src={graphicSrc}
+                alt={`${title} graphic`}
+                fill
+                className="object-contain"
+              />
+            </div>
+          ) : (
             <svg
               viewBox="0 0 100 100"
-              className="absolute top-0 left-0 h-full w-full animate-pulseOpacity"
+              className="h-full w-full animate-pulseOpacity"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* A translucent rounded rectangle “back” */}
               <rect
                 x="10"
                 y="10"
                 width="60"
                 height="60"
                 rx="8"
-                fill="#FF6A3D"
+                fill="#ED2A4F"
                 fillOpacity="0.6"
               />
-              {/* A frosted‐glass rectangle “front” */}
               <rect
                 x="20"
                 y="20"
@@ -210,8 +213,8 @@ export default function WhoWeWorkCard({
                 fillOpacity="0.15"
               />
             </svg>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

@@ -155,8 +155,8 @@ export default function HowWeWorkGrid() {
     <section className="py-16 px-6 md:px-12 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* SECTION HEADING */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
-          How We Bring <span className="text-primary">Your Website</span> to Life
+        <h2 className="text-4xl md:text-[100px] font-bold text-white mb-12">
+          How We Bring Ideas To Life
         </h2>
 
         {/**

@@ -12,19 +12,30 @@ export default function AboutUsSection() {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="py-16 px-6 md:px-12 mb-18 mx-6 bg-light rounded-4xl text-background"
+      className="
+        relative
+        mx-6 mb-18
+        py-16 px-6 md:px-12
+        bg-[#111]           
+        border border-gray-700  
+        rounded-4xl
+        text-foreground
+        shadow-[0_0_50px_rgba(235,192,45,0.4)]  /* your gold glow */
+      "
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         {/* Left column: bullet (1/3) */}
         <div className="col-span-1">
           <span className="inline-block text-2xl md:text-3xl mr-2">•</span>
-          <span className="text-lg md:text-xl font-semibold">Who are we?</span>
+          <span className="text-lg md:text-xl font-semibold">
+            Who are we?
+          </span>
         </div>
 
         {/* Right column: content + CTAs (2/3) */}
         <div className="col-span-1 md:col-span-2 space-y-6">
           <motion.h2
-            className="text-2xl text-background md:text-3xl font-bold leading-tight"
+            className="text-2xl text-foreground md:text-3xl font-bold leading-tight"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -49,12 +60,6 @@ export default function AboutUsSection() {
             >
               About Design by Kings
             </Link>
-            {/* <Link
-              href="/team"
-              className="inline-block text-foreground border border-foreground px-6 py-3 rounded-full font-medium hover:bg-foreground hover:text-background transition"
-            >
-              Meet the Team
-            </Link> */}
           </motion.div>
         </div>
       </div>
