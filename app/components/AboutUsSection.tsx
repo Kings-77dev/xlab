@@ -13,26 +13,30 @@ export default function AboutUsSection() {
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="
-        relative
+        relative z-10
         mx-6 mb-18
         py-16 px-6 md:px-12
-        bg-[#111]           
-        border border-gray-700  
+        bg-[#111]
+        border border-gray-700
         rounded-4xl
         text-foreground
-        shadow-[0_0_50px_rgba(235,192,45,0.4)]  /* your gold glow */
+        shadow-[0_0_50px_rgba(235,192,45,0.4)]
       "
     >
+      {/** 1) Quarter‐circle decorative element, bottom-right **/}
+      <div className="absolute bottom-0 right-0 w-16 h-16 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-32 h-32 bg-primary rounded-full" />
+      </div>
+
+      {/** 2) Your existing content **/}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-        {/* Left column: bullet (1/3) */}
+        {/* Left column: bullet */}
         <div className="col-span-1">
           <span className="inline-block text-2xl md:text-3xl mr-2">•</span>
-          <span className="text-lg md:text-xl font-semibold">
-            Who are we?
-          </span>
+          <span className="text-lg md:text-xl font-semibold">Who are we?</span>
         </div>
 
-        {/* Right column: content + CTAs (2/3) */}
+        {/* Right column: content + CTAs */}
         <div className="col-span-1 md:col-span-2 space-y-6">
           <motion.h2
             className="text-2xl text-foreground md:text-3xl font-bold leading-tight"

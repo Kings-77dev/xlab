@@ -1,8 +1,9 @@
-// components/Services.tsx
+// components/ServicesScrollSection.tsx
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import ServiceCard from "./ServicesCard";
 import Link from "next/link";
 
 const services = [
@@ -10,7 +11,6 @@ const services = [
     svg: "/uiux2.svg",
     title: "Web Design / UI/UX",
     text: "We create user-friendly, engaging designs that enhance the user experience and drive conversions.",
-    // text: "Clean, responsive designs that reflect your brand and connect with your audience.",
   },
   {
     svg: "/seo2.svg",
@@ -29,81 +29,96 @@ const services = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
-  },
-};
+export default function ServicesScrollSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+  const count = services.length;
+  const segment = 1 / count;
+  const fadeLen = 0.3 * segment;
 
-export default function ServicesSection() {
+  const transforms = services.map((_, i) => {
+    const start     = i * segment;
+    const fadeInEnd = start + fadeLen;
+    const nextStart = (i + 1) * segment;
+    const nextEnd   = nextStart + fadeLen;
+
+    // fade in 0→1 over [start, fadeInEnd], stay at 1, then fade out 1→0 over [nextStart, nextEnd]
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const opacity = useTransform(
+      scrollYProgress,
+      [start, fadeInEnd, nextStart, nextEnd],
+      [0,     1,         1,         0      ]
+    );
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const translateY = useTransform(
+      scrollYProgress,
+      [start, fadeInEnd],
+      [200,   0        ]
+    );
+
+    return { opacity, translateY };
+  });
+
+  const sectionMinHeight = `${(count + 1.5) * 100}vh`;
+
   return (
-    <motion.section
+    <section
+      ref={scrollRef}
       id="services"
-      className="bg-gray-100 py-16"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
+      className="relative bg-black text-black  "
+      style={{ minHeight: sectionMinHeight }}
     >
-      <div className="max-w-7xl mx-auto p-12 space-y-8">
-        {/* Heading */}
-        <div className="text-center space-y-2">
-          <motion.h2
-            className="text-3xl font-bold"
-            variants={itemVariants}
-            transition={{ duration: 0.6 }}
-          >
+      {/* Sticky header + stack */}
+      <div className="sticky top-0 h-screen flex items-center">
+        <div className="max-w-7xl mx-auto w-full px-6">
+          <h2 className="text-4xl md:text-[100px] font-bold text-center mb-16">
             Our Services
-          </motion.h2>
-          <motion.p
-            className="text-gray-700"
-            variants={itemVariants}
-            transition={{ duration: 0.6 }}
-          >
-            Smart, modern websites built to grow your business. From full redesigns to ongoing support — we’ve got you covered.
-          </motion.p>
-        </div>
-
-        {/* Service Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 bg">
-          {services.map(({ svg, title, text }, idx) => (
-            <motion.div
-              key={idx}
-              className="flex flex-col items-start space-y-4 bg-white border border-gray-300 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-              variants={itemVariants}
-              transition={{ duration: 0.6 }}
-            >
-              {/* fixed-size icon wrapper */}
-              <div className="bg- p- rounded-lg ">
-                <div className="relative w-24 h-24 ">
-                  <Image
-                    src={svg}
-                    alt={title}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-
-              <h3 className="text-lg font-semibold">{title}</h3>
-              <p className="text-gray-600 text-sm">{text}</p>
-              <Link
-        href="/pricing"
-        className="mt-4 inline-block bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent-dark transition"
-      >
-        View More
-      </Link>
-            </motion.div>
-          ))}
+          </h2>
+          <div className="relative h-[500px] flex justify-center items-center">
+            {services.map((svc, i) => (
+              <motion.div
+                key={i}
+                style={{
+                  opacity: transforms[i].opacity,
+                  y: transforms[i].translateY,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                }}
+                className="flex justify-center w-full px-6"
+              >
+                <ServiceCard
+                  idx={i + 1}
+                  title={svc.title}
+                  text={svc.text}
+                  svg={svc.svg}
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </motion.section>
+
+      {/* Bottom CTA */}
+      <div className="hidden md:flex absolute bottom-0 w-full pb-16">
+        <div className="max-w-7xl mx-auto text-center px-6">
+          <p className="text-gray-400 mb-4">
+            We turn great ideas into digital experiences that engage and convert.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-primary text-background px-6 py-3 rounded-full font-medium hover:bg-accent transition"
+          >
+            Talk to Us
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }

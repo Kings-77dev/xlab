@@ -66,23 +66,23 @@ export default function NavBar() {
             </button>
             {servicesOpen && (
               <div
-                className="absolute top-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 w-48 z-50"
+                className="absolute top-full mt-2 bg-background rounded-lg shadow-lg border border-gray-700 py-2 w-48 z-50"
                 onMouseEnter={openServices}
                 onMouseLeave={closeServices}
               >
-                <Link href="/Services" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/Services" className="block px-4 py-2 hover:bg-primary rounded-lg">
                   All Services
                 </Link>
-                <Link href="/Services/webdesign" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/Services/webdesign" className="block px-4 py-2 hover:bg-primary rounded-lg">
                   Web Design
                 </Link>
-                <Link href="/Services/seo" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/Services/seo" className="block px-4 py-2 hover:bg-primary rounded-lg">
                   SEO
                 </Link>
-                <Link href="/Services/webdevelopment" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/Services/webdevelopment" className="block px-4 py-2 hover:bg-primary rounded-lg">
                   Web Development
                 </Link>
-                <Link href="/Services#maintenance" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/Services/maintainanceandsupport" className="block px-4 py-2 hover:bg-primary rounded-lg">
                   Maintenance & Support
                 </Link>
               </div>

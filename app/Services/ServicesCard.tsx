@@ -1,30 +1,131 @@
 // // components/ServiceCard.tsx
+// "use client";
+
+// import Image from "next/image";
 // import Link from "next/link";
-// import { IconType } from "react-icons";
 
 // interface ServiceCardProps {
-//   icon: IconType;
 //   title: string;
 //   text: string;
+//   svg: string;
+//   href?: string;
 // }
 
-// export default function ServicesCard({ icon: Icon, title, text }: ServiceCardProps) {
+// export default function ServiceCard({
+//   title,
+//   text,
+//   svg,
+//   href = "/services",
+// }: ServiceCardProps) {
 //   return (
-//     <div className="flex flex-col items-start space-y-4">
-//       <div className="bg-pink-100 p-3 rounded-lg inline-block">
-//         <Icon className="h-6 w-6 text-accent" />
+//     <div className="relative w-full h-auto md:h-80">
+//       {/* Glow behind */}
+//       <div
+//         className="absolute -inset-4 rounded-2xl blur-3xl"
+//         style={{
+//           background:
+//             "radial-gradient(circle at center, rgba(235,192,45,0.4), transparent 70%)",
+//         }}
+//       />
+
+//       {/* Card container */}
+//       <div className="relative flex w-full h-full bg-[#111] border border-gray-700 rounded-2xl overflow-hidden z-10">
+//         {/** 1) Decorative quarter-circle top-right **/}
+//         <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden pointer-events-none">
+//           <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary rounded-full" />
+//         </div>
+
+//         {/** 2) Left: title + text + button **/}
+//         <div className="flex-1 max-w-md px-10 py-12 flex flex-col">
+//           <h3 className="text-3xl font-semibold text-white mb-4">{title}</h3>
+//           <p className="text-gray-300 leading-relaxed mb-6 flex-grow">
+//             {text}
+//           </p>
+//           <Link
+//             href={href}
+//             className="mt-4 inline-block bg-primary text-background px-4 py-2 rounded-full font-medium hover:bg-accent transition"
+//           >
+//             Learn More
+//           </Link>
+//         </div>
+
+//         {/** 3) Right: SVG illustration **/}
+//         <div className="absolute right-0 top-1/2 z-20 flex h-38 w-38 -translate-y-1/2 items-center justify-center m-12">
+//           <Image
+//             src={svg}
+//             alt={title}
+//             fill
+//             className="object-contain"
+//           />
+//         </div>
 //       </div>
-//       <h3 className="text-lg font-semibold">{title}</h3>
-//       <p className="text-gray-600 text-sm">{text}</p>
-//       <Link
-//         href="/pricing"
-//         className="mt-4 inline-block bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-accent-dark transition"
-//       >
-//         View More
-//       </Link>
 //     </div>
 //   );
 // }
 
 
 
+// components/ServiceCard.tsx
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+interface ServiceCardProps {
+  title: string;
+  text: string;
+  svg: string;
+  href?: string;
+    idx?: number;
+
+}
+
+export default function ServiceCard({
+  title,
+  text,
+  svg,
+  href = "/services",
+}: ServiceCardProps) {
+  return (
+    <div className="relative w-full h-auto md:h-80">
+      {/* Glow behind */}
+      <div
+        className="absolute -inset-4 rounded-2xl blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(235,192,45,0.4), transparent 70%)",
+        }}
+      />
+
+      {/* Card container */}
+      <div className="relative flex flex-col md:flex-row w-full h-full bg-[#111] border border-gray-700 rounded-2xl overflow-hidden z-10">
+        {/** 1) Decorative quarter-circle top-right **/}
+        <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden pointer-events-none">
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary rounded-full" />
+        </div>
+
+        {/** 2) Left: title + text + button **/}
+        <div className="flex-1 max-w-md px-10 py-12 flex flex-col">
+          <h3 className="text-3xl font-semibold text-white mb-4">{title}</h3>
+          <p className="text-gray-300 leading-relaxed mb-6 flex-grow">{text}</p>
+          <Link
+            href={href}
+            className="mt-4 block w-full md:inline-block md:w-auto bg-primary text-background px-4 py-2 rounded-full font-medium hover:bg-accent transition"
+          >
+            Learn More
+          </Link>
+        </div>
+
+        {/** 3) Right: SVG illustration (hidden on mobile) **/}
+        <div className="hidden md:flex absolute right-0 top-1/2 z-20 items-center justify-center h-38 w-38 -translate-y-1/2 m-12">
+          <Image
+            src={svg}
+            alt={title}
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,4 +1,6 @@
-import Portfolio from "./Portfolio";
+// app/portfolio/page.tsx
+import Head from "next/head";
+import PortfolioClient from "./PortfolioClient";
 
 export const metadata = {
   title: "Our Work – Design Point Digital",
@@ -6,11 +8,16 @@ export const metadata = {
     "Explore our portfolio of website redesigns, builds, and optimizations for small businesses.",
 };
 
-export default function PortfolioPage() {
+export default function Page() {
   return (
-    <main className="bg-gray-100">
-      <Portfolio />
-     
-    </main>
+    <>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </Head>
+      <main className="bg-gray-100">
+        <PortfolioClient />
+      </main>
+    </>
   );
 }

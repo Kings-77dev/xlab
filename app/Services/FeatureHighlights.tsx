@@ -1,5 +1,5 @@
 // components/FeatureHighlights.tsx
-import Image from "next/image";
+// import Image from "next/image";
 import {
   ShoppingCartIcon,
   Cog6ToothIcon,
@@ -36,25 +36,25 @@ const features = [
 
 export default function FeatureHighlights() {
   return (
-    <section id="features" className="py-20 px-6 md:px-12 bg-gray-100">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section id="features" className="py-20 px-6 md:px-12 bg-background">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 ">
          {/* Left column */}
-                <div className="space-y-4">
+                <div className="space-y-4 flex flex-col items-start">
                   <h2 className="text-3xl font-bold">Stand Out With Feature-Rich Sites</h2>
-                  <p className="text-gray-700">
+                  <p className="text-foreground">
                   From selling online to managing content and delighting users on any device, we
                   build the tools your business needs to grow and thrive.
                   </p>
         
                   {/* Illustration under the description */}
-                  <div className="relative w-full h-48 md:h-84">
+                  {/* <div className="relative w-full h-48 md:h-84">
                     <Image
                       src="/conversion.svg"
                       alt="Workflow illustration"
                       fill
                       className="object-contain "
                     />
-                  </div>
+                  </div> */}
                 </div>
 
         {/* Right: feature list */}
@@ -72,7 +72,7 @@ export default function FeatureHighlights() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold">{f.title}</h3>
-                  <p className="text-gray-600">{f.description}</p>
+                  <p className="text-gray-400 ">{f.description}</p>
                 </div>
               </div>
             ))}

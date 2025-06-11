@@ -17,6 +17,7 @@ export default function CanvasBackground({ className = "" }) {
     mouse.current.y = e.clientY - rect.top;
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleResize = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -46,6 +47,7 @@ export default function CanvasBackground({ className = "" }) {
     offset: number;
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const initializeUIElements = (width: number, height: number): void => {
     const usedPositions: { x: number; y: number }[] = [];
 
@@ -106,6 +108,7 @@ export default function CanvasBackground({ className = "" }) {
     ];
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const draw = (
     ctx: CanvasRenderingContext2D,
     width: number,
@@ -372,7 +375,7 @@ export default function CanvasBackground({ className = "" }) {
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, []);
+  }, [draw, handleResize, initializeUIElements]);
 
   return (
     <canvas

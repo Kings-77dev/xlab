@@ -55,7 +55,7 @@ export default function WhySEOWithUs() {
 
   if (!loaded) {
     return (
-      <section id="why-seo" className="py-16 px-6 md:px-12 bg-white rounded-2xl">
+      <section id="why-seo" className="py-16 px-6 md:px-12 bg-background ">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[100px]">
           {/* Left skeleton */}
           <div className="space-y-6">
@@ -84,7 +84,7 @@ export default function WhySEOWithUs() {
   return (
     <motion.section
       id="why-seo"
-      className="py-16 px-6 md:px-12 bg-white rounded-2xl"
+      className="py-16 px-6 md:px-12 bg-background "
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

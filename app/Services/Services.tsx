@@ -7,7 +7,6 @@ import ServicesCTA from "./ServicesCTA";
 // import Accreditation from "../components/Accreditation";
 import LogoMarquee from "../components/LogoMarquee";
 import WhyPartner from "../components/WhyPartner";
-import TestimonialsCarousel from "./TestimonialsCarousel";
 
 const Services = () => {
   return (
@@ -18,7 +17,6 @@ const Services = () => {
       <FeatureHighlights />
       <LogoMarquee />
       <ProcessSteps />
-      <TestimonialsCarousel />
       <ServicesCTA />
 
     </div>

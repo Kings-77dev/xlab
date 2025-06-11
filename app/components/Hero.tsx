@@ -4,7 +4,7 @@
 import { motion } from "framer-motion";
 // import Image from "next/image";
 import Link from "next/link";
-import CanvasBackground from "./CanvasBackground";  // adjust path if needed
+import CanvasBackground from "./CanvasBackground"; // adjust path if needed
 
 // simple variants for fading/ sliding
 const fadeInUp = {
@@ -21,9 +21,10 @@ export default function Hero() {
     <section
       id="hero"
       className="relative overflow-hidden h-screen flex flex-col-reverse md:flex-row items-center px-8 py-16 md:py-28"
-       >      {/* full‐screen animated canvas, behind all hero content */}
+    >
+      {" "}
+      {/* full‐screen animated canvas, behind all hero content */}
       <CanvasBackground className="absolute inset-0 -z-10" />
-
       {/* Text column */}
       <motion.div
         className="flex-2 space-y-8"
@@ -55,14 +56,13 @@ export default function Hero() {
           <Link href="#cta">
             <button
               type="button"
-              className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-dark transition"
+              className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-400 transition"
             >
               Get a Free Website Review
             </button>
           </Link>
         </motion.div>
       </motion.div>
-
       {/* Image stack column */}
       <motion.div
         className="md:w-1/3 relative flex justify-center mb-10 md:mb-1 md:ml-10"

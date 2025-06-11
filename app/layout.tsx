@@ -28,25 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-    >
-      <body
-        className={`${dmSans.variable} ${dmSerif.variable} antialiased`}
-      >
+    <ThemeProvider
+    attribute="class" // toggles 'class="light"' / 'class="dark"'
+    defaultTheme="system" // or 'light' | 'dark'
+    enableSystem // respect OS preference
+    disableTransitionOnChange // avoid flash on theme switch
+  >
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${dmSans.variable} ${dmSerif.variable} antialiased`}>
         {/* ThemeProvider must wrap all client-side theming */}
-        <ThemeProvider
-          attribute="class"               // toggles 'class="light"' / 'class="dark"'
-          defaultTheme="system"           // or 'light' | 'dark'
-          enableSystem                     // respect OS preference
-          disableTransitionOnChange        // avoid flash on theme switch
-        >
+     
           <NavBar />
           {children}
           <Footer />
-        </ThemeProvider>
       </body>
     </html>
+    </ThemeProvider>
+
   );
 }
