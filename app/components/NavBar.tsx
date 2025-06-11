@@ -38,7 +38,7 @@ export default function NavBar() {
     } hover:text-primary transition`;
 
   return (
-    <header className="border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-background ">
       <div className="max-w-9xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="text-2xl font-bold">
@@ -48,7 +48,7 @@ export default function NavBar() {
         </div>
 
         {/* Desktop nav: centered */}
-        <nav className="hidden md:flex flex-1 justify-center space-x-8 text-lg items-center">
+        <nav className="hidden md:flex  flex-1 justify-center space-x-8 text-lg items-center">
           <Link href="/" className={linkClass("/")}>
             Home
           </Link>

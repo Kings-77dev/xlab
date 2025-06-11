@@ -51,7 +51,7 @@ export default function SLACallToAction() {
             </p>
             <Link
               href="/contact"
-         className="inline-block w-1/2 bg-primary text-white px-4 py-2 rounded-xl text-base font-medium hover:bg-accent transition"
+         className="inline-block w-1/2 bg-primary text-white px-4 py-2 rounded-lg text-base text-center font-bold hover:scale-115 hover:bg-primary transition"
 
             >
               Contact Sales

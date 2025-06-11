@@ -399,7 +399,7 @@ export default function WhyPartner() {
                     "radial-gradient(circle at center, rgba(235,192,45,0.4), transparent 70%)",
                 }}
               />
-              <span className="relative z-10 bg-primary text-white px-6 py-3 rounded-xl font-medium hover:bg-accent-dark transition inline-block">
+              <span className="relative z-10 bg-primary text-white px-6 py-3 rounded-xl font-bold inline-block hover:scale-115 hover:bg-primary transition">
                 Contact Us
               </span>
             </Link>

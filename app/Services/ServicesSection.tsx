@@ -114,7 +114,7 @@ export default function ServicesScrollSection() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-primary text-background px-6 py-3 rounded-xl font-medium hover:bg-accent transition"
+            className="inline-block bg-primary text-foreground px-6 py-3 rounded-xl font-bold hover:scale-115 hover:bg-primary transition"
           >
             Talk to Us
           </Link>
