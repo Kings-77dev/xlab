@@ -29,7 +29,7 @@ export default function CTA() {
           {/* Button */}
           <a
             href="#"
-            className="inline-block bg-primary px-8 py-3 rounded-lg text-lg font-medium text-white hover:bg-accent-dark transition"
+            className="inline-block bg-primary px-8 py-3 rounded-xl text-lg font-bold text-white  transform duration-200 ease-out hover:scale-115 hover:bg-primary transition"
           >
             Book a Free Call
           </a>

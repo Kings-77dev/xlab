@@ -56,7 +56,7 @@ export default function Hero() {
           <Link href="#cta">
             <button
               type="button"
-              className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-400 transition"
+              className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium transform duration-200 ease-out hover:scale-110 hover:bg-primary transition"
             >
               Get a Free Website Review
             </button>

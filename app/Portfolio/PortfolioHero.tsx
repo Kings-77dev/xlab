@@ -78,8 +78,11 @@ export default function PortfolioHero({
         <h1 className="text-6xl md:text-8xl font-bold leading-tight">
           We Make <br className="hidden md:inline" /> Digital Beautiful
         </h1>
-        {/* The “dot” */}
-        <div className="mt-4 text-2xl">•</div>
+        
+         {/* Subheading */}
+        <p className="mt-6 text-lg md:text-xl max-w-2xl text-gray-400">
+          Elevating brands through design and technical expertise.
+        </p>
 
         {/* Category pills */}
         <div className="mt-12 flex flex-wrap gap-4">

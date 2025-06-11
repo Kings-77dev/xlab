@@ -258,7 +258,7 @@ export default function HowWeWorkGrid() {
         {/* OPTIONAL CTA UNDERNEATH THE GRID */}
         <div className="mt-12 text-center">
           <Link href="/contact">
-            <button className="inline-block bg-primary text-black px-6 py-3 rounded-full font-medium hover:opacity-90 transition">
+            <button className="inline-block bg-primary text-foreground  px-6 py-3 rounded-xl font-bold  transform duration-200 ease-out hover:scale-115 hover:bg-primary transition">
               Learn More
             </button>
           </Link>

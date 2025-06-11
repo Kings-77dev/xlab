@@ -110,7 +110,7 @@ const seoItems = [
 
 export default function IncludedInSEO() {
   return (
-    <section className="py-16 px-6 md:px-12 bg-black rounded-2xl">
+    <section className="py-16 px-6 md:px-12 bg-black ">
       <h2 className="text-3xl font-bold text-center mb-8 text-white">
         What’s Included in Our <span className="text-primary">SEO Services</span>
       </h2>

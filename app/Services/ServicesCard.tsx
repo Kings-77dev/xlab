@@ -110,7 +110,7 @@ export default function ServiceCard({
           <p className="text-gray-300 leading-relaxed mb-6 flex-grow">{text}</p>
           <Link
             href={href}
-            className="mt-4 block w-full md:inline-block md:w-auto bg-primary text-background px-4 py-2 rounded-full font-medium hover:bg-accent transition"
+            className="mt-4 block w-full md:w-1/2 md:inline-block  bg-primary text-background px-4 py-2 rounded-xl font-medium hover:bg-accent transition"
           >
             Learn More
           </Link>

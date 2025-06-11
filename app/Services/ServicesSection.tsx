@@ -41,24 +41,24 @@ export default function ServicesScrollSection() {
   const fadeLen = 0.3 * segment;
 
   const transforms = services.map((_, i) => {
-    const start     = i * segment;
+    const start = i * segment;
     const fadeInEnd = start + fadeLen;
     const nextStart = (i + 1) * segment;
-    const nextEnd   = nextStart + fadeLen;
+    const nextEnd = nextStart + fadeLen;
 
     // fade in 0→1 over [start, fadeInEnd], stay at 1, then fade out 1→0 over [nextStart, nextEnd]
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const opacity = useTransform(
       scrollYProgress,
       [start, fadeInEnd, nextStart, nextEnd],
-      [0,     1,         1,         0      ]
+      [0, 1, 1, 0]
     );
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const translateY = useTransform(
       scrollYProgress,
       [start, fadeInEnd],
-      [200,   0        ]
+      [200, 0]
     );
 
     return { opacity, translateY };
@@ -109,11 +109,12 @@ export default function ServicesScrollSection() {
       <div className="hidden md:flex absolute bottom-0 w-full pb-16">
         <div className="max-w-7xl mx-auto text-center px-6">
           <p className="text-gray-400 mb-4">
-            We turn great ideas into digital experiences that engage and convert.
+            We turn great ideas into digital experiences that engage and
+            convert.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-primary text-background px-6 py-3 rounded-full font-medium hover:bg-accent transition"
+            className="inline-block bg-primary text-background px-6 py-3 rounded-xl font-medium hover:bg-accent transition"
           >
             Talk to Us
           </Link>

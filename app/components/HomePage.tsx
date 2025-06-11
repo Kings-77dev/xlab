@@ -17,12 +17,9 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <AboutUsSection/>
+      <AboutUsSection />
       <PortfolioSection />
-
-
       <FeatureHighlights />
-
       <WhatWereGoodAt />
 
       <HowWeWork />

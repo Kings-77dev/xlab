@@ -36,7 +36,7 @@ import {
           <h2 className="text-3xl md:text-4xl font-bold">
             Our 4-Step Web Process
           </h2>
-          <p className="mt-4 text-gray-700">
+          <p className="mt-4 text-gray-400">
             A transparent, collaborative workflow—from research to launch—that
             turns your vision into a high-impact website.
           </p>
@@ -48,11 +48,11 @@ import {
               key={idx}
               className="flex flex-col items-center text-center space-y-4"
             >
-              <div className="p-4 bg-pink-100 rounded-full">
+              <div className="p-4 bg-primary rounded-full">
                 <step.icon className="h-8 w-8 text-accent" />
               </div>
               <h3 className="text-lg font-semibold">{step.title}</h3>
-              <p className="text-gray-600 text-sm">{step.desc}</p>
+              <p className="text-gray-400 text-sm">{step.desc}</p>
             </div>
           ))}
         </div>

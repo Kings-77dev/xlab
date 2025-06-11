@@ -37,11 +37,11 @@ const features = [
 export default function FeatureHighlights() {
   return (
     <section id="features" className="py-20 px-6 md:px-12 bg-background">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 ">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-[100px] ">
          {/* Left column */}
                 <div className="space-y-4 flex flex-col items-start">
-                  <h2 className="text-3xl font-bold">Stand Out With Feature-Rich Sites</h2>
-                  <p className="text-foreground">
+                  <h2 className="text-3xl md:text-4xl font-bold">Stand Out With <span className="text-primary">Feature-Rich Sites</span></h2>
+                  <p className="text-gray-400 text-base md:text-lg">
                   From selling online to managing content and delighting users on any device, we
                   build the tools your business needs to grow and thrive.
                   </p>
@@ -67,12 +67,12 @@ export default function FeatureHighlights() {
           <div className="space-y-6">
             {features.map((f, i) => (
               <div key={i} className="flex items-start space-x-4">
-                <div className="p-3 bg-pink-100 rounded-lg">
-                  <f.icon className="h-6 w-6 text-accent" />
+                <div className="p-2 bg-primary bg-opacity-10 rounded-lg">
+                  <f.icon className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">{f.title}</h3>
-                  <p className="text-gray-400 ">{f.description}</p>
+                  <h3 className="text-3xl md:text-4xl font-semibold mb-6">{f.title}</h3>
+                  <p className="text-gray-400 text-base md:text-lg ">{f.description}</p>
                 </div>
               </div>
             ))}

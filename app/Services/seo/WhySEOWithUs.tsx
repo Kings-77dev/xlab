@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { motion } from "framer-motion";
@@ -12,7 +11,7 @@ import {
   UsersIcon,
   ClockIcon,
 } from "@heroicons/react/24/solid";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function WhySEOWithUs() {
   const points = [
@@ -96,19 +95,19 @@ export default function WhySEOWithUs() {
           <h2 className="text-3xl md:text-4xl font-bold">
             Why Partner with Us for <span className="text-primary">SEO</span>
           </h2>
-          <p className="text-gray-700">
+          <p className="text-gray-400 text-base md:text-lg">
             Our proven SEO expertise helps you attract the right customers,
             climb the rankings, and build a sustainable online presence that
             outlasts your competition.
           </p>
-          <div className="w-full h-64 relative">
+          {/* <div className="w-full h-64 relative">
             <Image
               src="/illustrations/seo-team.svg"
               alt="SEO team collaborating"
               fill
               className="object-contain"
             />
-          </div>
+          </div> */}
         </motion.div>
 
         {/* Right */}
@@ -123,19 +122,19 @@ export default function WhySEOWithUs() {
                 {pt.icon}
               </div>
               <div>
-                <h3 className="text-lg font-semibold">{pt.title}</h3>
-                <p className="text-gray-600">{pt.text}</p>
+                <h3 className="text-3xl md:text-4xl font-semibold mb-6">{pt.title}</h3>
+                <p className="text-gray-400 text-base md:text-lg ">{pt.text}</p>
               </div>
             </motion.div>
           ))}
 
           <motion.div variants={itemVariants} className="mt-6">
-            <Link
+            {/* <Link
               className="inline-block bg-primary text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-accent-dark transition"
               href="/contact"
             >
               Get Your SEO Audit
-            </Link>
+            </Link> */}
           </motion.div>
         </motion.div>
       </div>

@@ -28,7 +28,7 @@ export default function SEOFeatureCard({ img, title, points, opacity, translateY
       />
 
       {/* Card container */}
-      <div className="relative flex flex-col md:flex-row w-full h-auto md:h-90 bg-background border border-gray-700 rounded-2xl overflow-hidden z-10">
+      <div className="relative flex flex-col md:flex-row w-full h-auto md:h-100 bg-background border border-gray-700 rounded-2xl overflow-hidden z-10">
         {/* Decorative quarter-circle */}
         <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden pointer-events-none">
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary rounded-full" />
@@ -37,11 +37,11 @@ export default function SEOFeatureCard({ img, title, points, opacity, translateY
         {/* Text + points */}
         <div className="flex-1 max-w-md px-10 py-12 flex flex-col">
           <h3 className="text-3xl font-semibold text-foreground mb-4">{title}</h3>
-          <ul className="space-y-3 flex-grow text-foreground">
+          <ul className="space-y-3 flex-grow  text-foreground">
             {points.map((pt, i) => (
-              <li key={i} className="flex items-start space-x-2">
+              <li key={i} className="flex  items-start space-x-2">
                 <CheckIcon className="h-5 w-5 flex-shrink-0 text-primary mt-1" />
-                <span className="text-sm leading-relaxed">{pt}</span>
+                <span className="text-m leading-relaxed">{pt}</span>
               </li>
             ))}
           </ul>

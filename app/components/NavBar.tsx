@@ -4,18 +4,18 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 import {
   Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
-  SunIcon,
-  MoonIcon,
+  // SunIcon,
+  // MoonIcon,
 } from "@heroicons/react/24/solid";
 
 export default function NavBar() {
   const pathname = usePathname() || "";
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const closeTimer = useRef<number | null>(null);
@@ -31,9 +31,10 @@ export default function NavBar() {
   };
 
   const linkClass = (path: string) =>
-    `${pathname === path
-      ? "border-b-2 border-primary text-primary font-medium"
-      : "border-b-2 border-transparent "
+    `${
+      pathname === path
+        ? "border-b-2 border-primary text-primary font-medium"
+        : "border-b-2 border-transparent "
     } hover:text-primary transition`;
 
   return (
@@ -70,19 +71,34 @@ export default function NavBar() {
                 onMouseEnter={openServices}
                 onMouseLeave={closeServices}
               >
-                <Link href="/Services" className="block px-4 py-2 hover:bg-primary rounded-lg">
+                <Link
+                  href="/Services"
+                  className="block px-4 py-2 hover:bg-primary rounded-lg"
+                >
                   All Services
                 </Link>
-                <Link href="/Services/webdesign" className="block px-4 py-2 hover:bg-primary rounded-lg">
+                <Link
+                  href="/Services/webdesign"
+                  className="block px-4 py-2 hover:bg-primary rounded-lg"
+                >
                   Web Design
                 </Link>
-                <Link href="/Services/seo" className="block px-4 py-2 hover:bg-primary rounded-lg">
+                <Link
+                  href="/Services/seo"
+                  className="block px-4 py-2 hover:bg-primary rounded-lg"
+                >
                   SEO
                 </Link>
-                <Link href="/Services/webdevelopment" className="block px-4 py-2 hover:bg-primary rounded-lg">
+                <Link
+                  href="/Services/webdevelopment"
+                  className="block px-4 py-2 hover:bg-primary rounded-lg"
+                >
                   Web Development
                 </Link>
-                <Link href="/Services/maintainanceandsupport" className="block px-4 py-2 hover:bg-primary rounded-lg">
+                <Link
+                  href="/Services/maintainanceandsupport"
+                  className="block px-4 py-2 hover:bg-primary rounded-lg"
+                >
                   Maintenance & Support
                 </Link>
               </div>
@@ -98,7 +114,7 @@ export default function NavBar() {
         </nav>
 
         {/* Theme toggle */}
-        <button
+        {/* <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           aria-label="Toggle light/dark mode"
           className="hidden md:flex mr-4 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
@@ -108,12 +124,12 @@ export default function NavBar() {
           ) : (
             <MoonIcon className="h-6 w-6 text-background " />
           )}
-        </button>
+        </button> */}
 
         {/* CTA Button */}
         <Link
           href="#cta"
-          className="hidden md:inline-block bg-primary text-white px-6 py-2 rounded-lg text-lg font-medium hover:bg-accent-dark transition"
+          className="hidden md:inline-block bg-primary text-white px-6 py-2 rounded-lg text-lg font-medium  transform duration-200 ease-out hover:scale-115 hover:bg-primary transition"
         >
           Book a Free Call
         </Link>
@@ -133,7 +149,7 @@ export default function NavBar() {
 
       {/* Mobile slide-in menu */}
       <div
-        className={`fixed inset-0 z-50 bg-white transform ${
+        className={`fixed inset-0 z-50 bg-background transform ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out md:hidden`}
       >
@@ -148,24 +164,24 @@ export default function NavBar() {
           </button>
         </div>
 
-        <nav className="px-6 py-4 space-y-2">
+        <nav className="px-6 py-4 text-xl font-medium space-y-2">
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 border-b border-gray-100"
+            className="block py-3 "
           >
             Home
           </Link>
           <Link
             href="/Portfolio"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 border-b border-gray-100"
+            className="block py-3 "
           >
             Portfolio
           </Link>
 
           {/* Services accordion */}
-          <div className="border-b border-gray-100">
+          <div className="">
             <button
               className="w-full flex justify-between items-center py-3"
               onClick={() => setServicesOpen((o) => !o)}
@@ -226,20 +242,20 @@ export default function NavBar() {
           <Link
             href="/Pricing"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 border-b border-gray-100"
+            className="block py-3 "
           >
             Pricing
           </Link>
           <Link
             href="/Contact"
             onClick={() => setMobileOpen(false)}
-            className="block py-3 border-b border-gray-100"
+            className="block py-3 "
           >
             Contact
           </Link>
 
           {/* Mobile theme toggle */}
-          <button
+          {/* <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle light/dark mode"
             className="w-full flex items-center space-x-2 py-3"
@@ -250,12 +266,12 @@ export default function NavBar() {
               <MoonIcon className="h-5 w-5 text-foreground" />
             )}
             <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-          </button>
+          </button> */}
 
           <Link
             href="#cta"
             onClick={() => setMobileOpen(false)}
-            className="block px-6 py-3 bg-primary text-white text-center rounded-lg"
+            className="block px-6 py-3 bg-primary text-white text-center rounded-lg  transform duration-200 ease-out hover:scale-115 hover:bg-primary transition"
           >
             Book a Free Call
           </Link>

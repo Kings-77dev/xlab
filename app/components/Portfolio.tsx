@@ -111,7 +111,7 @@ export default function PortfolioSection() {
               Like what you see?
             </p>
             <Link href="/contact">
-              <button className="bg-primary text-background px-6 py-3 rounded-full font-medium hover:bg-accent transition">
+              <button className="bg-primary text-foreground px-6 py-3 rounded-xl font-bold  transform duration-200 ease-out hover:scale-115 hover:bg-primary transition">
                 Contact Us
               </button>
             </Link>
