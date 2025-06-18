@@ -10,12 +10,12 @@ export interface Testimonial {
 
 export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="flex-shrink-0 w-80 md:w-96 bg-white rounded-2xl p-6 shadow-lg mx-4">
+    <div className="flex-shrink-0 w-80 md:w-96 bg-black border border-gray-800 rounded-2xl p-6 shadow-lg mx-4">
       {/* quote icon */}
       <div className="text-4xl text-gray-200 mb-4">“</div>
 
       {/* quote text */}
-      <p className="text-gray-700 mb-4 leading-relaxed">{testimonial.quote}</p>
+      <p className="text-foreground mb-4 leading-relaxed">{testimonial.quote}</p>
 
       {/* stars */}
       {testimonial.rating != null && (

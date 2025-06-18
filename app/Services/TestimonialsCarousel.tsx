@@ -10,21 +10,21 @@ const data: Testimonial[] = [
     quote: "Integrating your service has been a game-changer. We saw a 40% drop in response times and a big uptick in satisfaction.",
     author: "John Doe",
     role: "Head of Customer Experience, FinTech Global",
-    avatar: "/avatars/john.jpg",
+    avatar: "/john.jpg",
     rating: 5,
   },
   {
     quote: "The chatbot isn’t just a tool; it’s like having a skilled assistant that’s improving every day. Our customers love it!",
     author: "Elijah Ramirez",
     role: "Director of Operations, EcoHome Solutions",
-    avatar: "/avatars/elijah.jpg",
+    avatar: "/elijah.jpg",
     rating: 5,
   },
   {
     quote: "We were amazed at how quickly the solution learned our industry data. The team’s support made all the difference.",
     author: "Mia Song",
     role: "CTO, HealthBridgeTech",
-    avatar: "/avatars/mia.jpg",
+    avatar: "/mia.jpg",
     rating: 5,
   },
 ];
@@ -41,16 +41,16 @@ export default function TestimonialsCarousel() {
       {/* Heading */}
       <div className="text-center mb-12 space-y-2">
         <h2 className="text-4xl font-bold">
-          What <span className="text-accent">Our Clients</span> Say
+          What <span className="text-primary">Our Clients</span> Say
         </h2>
-        <p className="text-gray-600">Hear directly from our satisfied partners</p>
+        <p className="text-gray-500">Hear directly from our satisfied partners</p>
       </div>
 
       {/* Carousel viewport */}
       <div className="flex justify-center items-center">
         <button
           onClick={prev}
-          className="p-3 rounded-full bg-white shadow-md mr-4 hover:bg-primary hover:text-white transition"
+          className="p-3 rounded-full bg-primary shadow-md mr-4 hover:bg-gray-400 hover:text-white transition"
         >
           <ChevronLeftIcon className="h-6 w-6 " />
         </button>
@@ -69,7 +69,7 @@ export default function TestimonialsCarousel() {
 
         <button
           onClick={next}
-          className="p-3 rounded-full bg-white  shadow-md ml-4 hover:bg-primary hover:text-white transition"
+          className="p-3 rounded-full bg-primary  shadow-md ml-4 hover:bg-gray-400 hover:text-white transition"
         >
           <ChevronRightIcon className="h-6 w-6" />
         </button>

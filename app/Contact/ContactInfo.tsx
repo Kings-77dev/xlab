@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const info = [
-  { icon: "/contact/phone.svg", label: "Phone", value: "+31 20 123 4567" },
-  { icon: "/contact/email.svg", label: "Email", value: "hello@designpoint.digital" },
-  { icon: "/contact/location.svg", label: "Address", value: "Amsterdam, Netherlands" },
+  { icon: "/phone.svg", label: "Phone", value: "+31 20 123 4567" },
+  { icon: "/email.svg", label: "Email", value: "hello@designpoint.digital" },
+  { icon: "/location.svg", label: "Address", value: "Amsterdam, Netherlands" },
 ];
 
 const container = {
   hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1, 
-    transition: { staggerChildren: 0.2 }
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
   },
 };
 const item = {
@@ -26,7 +26,7 @@ export default function ContactInfo() {
   return (
     <motion.section
       id="contact-info"
-      className="py-16 px-6 md:px-12 bg-gray-100"
+      className="py-16 px-6 md:px-12 bg-background"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -50,7 +50,7 @@ export default function ContactInfo() {
             </div>
             <div>
               <h4 className="text-lg font-semibold">{itemData.label}</h4>
-              <p className="text-gray-600">{itemData.value}</p>
+              <p className="text-gray-400">{itemData.value}</p>
             </div>
           </motion.div>
         ))}
