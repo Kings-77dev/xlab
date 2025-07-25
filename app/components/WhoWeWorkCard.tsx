@@ -7,7 +7,7 @@ interface WhoWeWorkCardProps {
   title: string;
   desc: string;
   graphicSrc?: string;
-  duration?: string;    // e.g. "2–4 Days"
+  duration?: string; // e.g. "2–4 Days"
 }
 
 export default function WhoWeWorkCard({
@@ -21,7 +21,7 @@ export default function WhoWeWorkCard({
     <div className="relative w-full h-80">
       {/* 1) Glow behind */}
       <div
-        className="absolute -inset-4 rounded-2xl blur-3xl"
+        className="md:absolute -inset-4 rounded-2xl blur-3xl"
         style={{
           background:
             "radial-gradient(circle at center, rgba(235, 191, 45, 0.3), transparent 70%)",
@@ -29,7 +29,7 @@ export default function WhoWeWorkCard({
       />
 
       {/* 2) Decorative quarter-circle bottom-left (above card) */}
-      <div className="absolute bottom-0 left-0 w-16 h-16 overflow-hidden pointer-events-none z-20">
+      <div className=" absolute bottom-0 left-0 w-16 h-16 overflow-hidden pointer-events-none z-20">
         <div className="absolute top-0 right-0 w-32 h-32 bg-primary rounded-full" />
       </div>
 
@@ -51,7 +51,7 @@ export default function WhoWeWorkCard({
         </div>
 
         {/* Right column: graphic */}
-        <div className="absolute right-0 top-1/2 z-20 flex h-40 w-40 -translate-y-1/2 items-center justify-center pr-8">
+        <div className="hidden absolute right-0 top-1/2 z-20 md:flex h-40 w-40 -translate-y-1/2 items-center justify-center pr-8">
           {graphicSrc ? (
             <div className="relative h-full w-full">
               <Image

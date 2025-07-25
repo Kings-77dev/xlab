@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="bg-gray-100">
+    <main className="bg-background">
       <ContactHero />
       <ContactInfo />
       <ContactForm />

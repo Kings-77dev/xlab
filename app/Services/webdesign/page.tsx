@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function WebDesignPage() {
   return (
-    <main className="bg-gray-100">
+    <main className="bg-background">
       <WebDesignHero/>
       <WebDesignFeatures />
       <WhyPartner />

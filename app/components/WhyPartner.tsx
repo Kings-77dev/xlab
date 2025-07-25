@@ -87,9 +87,6 @@
 //   );
 // }
 
-
-
-
 // // components/WhyPartner.tsx
 // "use client";
 
@@ -201,9 +198,6 @@
 //     </section>
 //   );
 // }
-
-
-
 
 // // components/WhyPartner.tsx
 // "use client";
@@ -321,8 +315,6 @@
 //   );
 // }
 
-
-
 // components/WhyPartner.tsx
 "use client";
 
@@ -331,7 +323,6 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import WhyPartnerCard from "./WhyPartnerCard";
 
 interface Point {
-  icon: string;
   title: string;
   text: string;
   bgClass: string;
@@ -340,28 +331,24 @@ interface Point {
 
 const points: Point[] = [
   {
-    icon: "/whypartner/custom.svg",
     title: "Tailored for Small Businesses",
     text: "Every site is custom-crafted to your goals and audience—no one-size-fits-all templates.",
     bgClass: "bg-red-900",
     accentClass: "bg-red-600",
   },
   {
-    icon: "/whypartner/process.svg",
     title: "Simple, Transparent Process",
     text: "Clear steps, honest pricing, and no tech jargon—just straightforward progress updates.",
     bgClass: "bg-yellow-800",
     accentClass: "bg-yellow-400",
   },
   {
-    icon: "/whypartner/conversion.svg",
     title: "Conversion-Focused Design",
     text: "Built with strategy, SEO, and performance in mind so your site actually turns visitors into customers.",
     bgClass: "bg-green-900",
     accentClass: "bg-green-400",
   },
   {
-    icon: "/whypartner/support.svg",
     title: "Long-Term Support",
     text: "Training, documentation, and maintenance options to keep your site running smoothly after launch.",
     bgClass: "bg-blue-900",
@@ -375,10 +362,9 @@ export default function WhyPartner() {
       <div className="max-w-8xl mx-auto flex flex-col md:flex-row gap-8">
         {/* Left Column */}
         <div className="flex-1 flex flex-col gap-10">
-          {points.slice(0,2).map((pt, idx) => (
+          {points.slice(0, 2).map((pt, idx) => (
             <WhyPartnerCard
               key={idx}
-              icon={pt.icon}
               title={pt.title}
               desc={pt.text}
               bgClass={pt.bgClass}
@@ -421,10 +407,9 @@ export default function WhyPartner() {
             </h2>
           </div>
           <div className="flex flex-col gap-10">
-            {points.slice(2,4).map((pt, idx) => (
+            {points.slice(2, 4).map((pt, idx) => (
               <WhyPartnerCard
-                key={idx+2}
-                icon={pt.icon}
+                key={idx + 2}
                 title={pt.title}
                 desc={pt.text}
                 bgClass={pt.bgClass}

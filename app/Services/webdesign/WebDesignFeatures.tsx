@@ -1,36 +1,38 @@
-// // components/UIUXBenefits.tsx
+
+
+// // components/WebDesignFeatures.tsx
 // "use client";
 
-// import React, { useState, useEffect } from "react";
 // import { motion } from "framer-motion";
 // import Skeleton from "react-loading-skeleton";
 // import "react-loading-skeleton/dist/skeleton.css";
+// import React, { useState, useEffect } from "react";
 // import Image from "next/image";
 
-// const benefits = [
+// const features = [
 //   {
-//     icon: "/icons/uiux/research.svg",
-//     title: "User Research",
-//     desc: "Understand your users’ needs through interviews, surveys, and analytics.",
+//     icon: "/icons/uiux/responsive.svg",
+//     title: "Responsive Design",
+//     desc: "An optimal user experience across mobile, tablet, and desktop devices.",
 //   },
 //   {
-//     icon: "/icons/uiux/wireframe.svg",
-//     title: "Wireframing & Prototyping",
-//     desc: "Quick prototypes to iterate on layouts, flows, and interactions.",
+//     icon: "/icons/uiux/branding.svg",
+//     title: "Branding & Visual Design",
+//     desc: "Custom visuals and brand integration for recognizable and cohesive design.",
 //   },
 //   {
-//     icon: "/icons/uiux/design.svg",
-//     title: "Visual Design",
-//     desc: "Create stunning, accessible designs that reflect your brand.",
+//     icon: "/icons/uiux/prototype.svg",
+//     title: "Prototyping & Wireframes",
+//     desc: "Test interactions and flows before development begins.",
 //   },
 //   {
-//     icon: "/icons/uiux/testing.svg",
-//     title: "User Testing",
-//     desc: "Validate designs and refine them using real user feedback.",
+//     icon: "/icons/uiux/cms.svg",
+//     title: "CMS Implementation",
+//     desc: "Easy content management with WordPress, Webflow, or headless CMS setups.",
 //   },
 // ];
 
-// export default function UIUXBenefits() {
+// export default function WebDesignFeatures() {
 //   const [loading, setLoading] = useState(true);
 //   useEffect(() => {
 //     const id = window.setTimeout(() => setLoading(false), 600);
@@ -39,16 +41,17 @@
 
 //   return (
 //     <motion.section
-//       className="bg-gray-100 py-16 px-6 md:px-12"
+//       id="web-design-features"
+//       className="bg-gray-100 py-16 px-6 md:px-12 rounded-2xl"
 //       initial={{ opacity: 0, y: 20 }}
 //       animate={{ opacity: loading ? 0 : 1, y: loading ? 20 : 0 }}
 //       transition={{ duration: 0.6 }}
 //     >
 //       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-//         {benefits.map((b, i) => (
+//         {features.map((f, i) => (
 //           <motion.div
 //             key={i}
-//             className="flex space-x-4"
+//             className="flex space-x-4 items-start"
 //             initial={{ opacity: 0, y: 20 }}
 //             animate={{ opacity: loading ? 0 : 1, y: loading ? 20 : 0 }}
 //             transition={{ delay: 0.1 * i, duration: 0.6 }}
@@ -58,20 +61,20 @@
 //                 <Skeleton circle width={48} height={48} />
 //               ) : (
 //                 <Image
-//                   src={b.icon}
-//                   alt={b.title}
+//                   src={f.icon}
+//                   alt={f.title}
 //                   width={48}
 //                   height={48}
 //                   className="object-contain"
 //                 />
 //               )}
 //             </div>
-//             <div className="flex-1 space-y-2">
+//             <div>
 //               <h3 className="text-xl font-semibold">
-//                 {loading ? <Skeleton width={180} height={24} /> : b.title}
+//                 {loading ? <Skeleton width={200} height={24} /> : f.title}
 //               </h3>
 //               <p className="text-gray-600">
-//                 {loading ? <Skeleton width={300} height={16} /> : b.desc}
+//                 {loading ? <Skeleton width={300} height={16} /> : f.desc}
 //               </p>
 //             </div>
 //           </motion.div>
@@ -81,87 +84,112 @@
 //   );
 // }
 
-
+// components/WebDesignFeatures.tsx
 // components/WebDesignFeatures.tsx
 "use client";
 
-import { motion } from "framer-motion";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import WhoWeWorkCard from "@/app/components/WhoWeWorkCard";
 
 const features = [
   {
-    icon: "/icons/uiux/responsive.svg",
     title: "Responsive Design",
     desc: "An optimal user experience across mobile, tablet, and desktop devices.",
   },
   {
-    icon: "/icons/uiux/branding.svg",
     title: "Branding & Visual Design",
     desc: "Custom visuals and brand integration for recognizable and cohesive design.",
   },
   {
-    icon: "/icons/uiux/prototype.svg",
     title: "Prototyping & Wireframes",
     desc: "Test interactions and flows before development begins.",
   },
   {
-    icon: "/icons/uiux/cms.svg",
     title: "CMS Implementation",
     desc: "Easy content management with WordPress, Webflow, or headless CMS setups.",
   },
 ];
 
 export default function WebDesignFeatures() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const id = window.setTimeout(() => setLoading(false), 600);
-    return () => window.clearTimeout(id);
-  }, []);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+
+  const count = features.length;
+  const segment = 1 / count;
+  const fadeLen = 0.3 * segment;
+
+  const transforms = features.map((_, i) => {
+    const slotStart = i * segment;
+    const fadeInEnd = slotStart + fadeLen;
+    const nextStart = (i + 1) * segment;
+    const nextEnd = nextStart + fadeLen;
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const opacity = useTransform(
+      scrollYProgress,
+      [slotStart, fadeInEnd, nextStart, nextEnd],
+      [0, 1, 1, 0]
+    );
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const translateY = useTransform(
+      scrollYProgress,
+      [slotStart, fadeInEnd],
+      [200, 0]
+    );
+
+    return { opacity, translateY };
+  });
+
+  const sectionMinHeight = `${(count + 1.5) * 100}vh`;
 
   return (
-    <motion.section
+    <section
+      ref={scrollRef}
       id="web-design-features"
-      className="bg-gray-100 py-16 px-6 md:px-12 rounded-2xl"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: loading ? 0 : 1, y: loading ? 20 : 0 }}
-      transition={{ duration: 0.6 }}
+      className="relative bg-background text-white mx-6 rounded-bl-2xl rounded-br-2xl"
+      style={{ minHeight: sectionMinHeight }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        {features.map((f, i) => (
-          <motion.div
-            key={i}
-            className="flex space-x-4 items-start"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: loading ? 0 : 1, y: loading ? 20 : 0 }}
-            transition={{ delay: 0.1 * i, duration: 0.6 }}
-          >
-            <div className="w-12 h-12">
-              {loading ? (
-                <Skeleton circle width={48} height={48} />
-              ) : (
-                <Image
-                  src={f.icon}
-                  alt={f.title}
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
-              )}
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">
-                {loading ? <Skeleton width={200} height={24} /> : f.title}
-              </h3>
-              <p className="text-gray-600">
-                {loading ? <Skeleton width={300} height={16} /> : f.desc}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+      {/* Sticky header + cards */}
+      <div className="sticky top-0 h-screen flex items-center">
+        <div className="max-w-7xl mx-auto w-full px-6">
+          <h2 className="text-4xl md:text-[100px] font-bold text-center mb-16">
+            Web Design <span className="text-primary">Features</span>
+          </h2>
+
+          <div className="relative h-[500px] flex justify-center items-center">
+            {features.map((item, i) => (
+              <motion.div
+                key={i}
+                style={{
+                  opacity: transforms[i].opacity,
+                  y: transforms[i].translateY,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                }}
+                className="flex justify-center"
+              >
+                <WhoWeWorkCard idx={i + 1} title={item.title} desc={item.desc} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-    </motion.section>
+
+      {/* Bottom text */}
+      <div className="absolute bottom-0 w-full pb-16">
+        <div className="max-w-7xl mx-auto text-center px-6">
+          <p className="text-gray-400 mb-4">
+            Every feature is tailored to enhance usability, engagement, and scalability.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
