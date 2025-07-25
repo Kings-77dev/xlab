@@ -15,7 +15,7 @@ export default function Page() {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </Head>
-      <main className="bg-gray-100">
+      <main className="bg-gray-">
         <PortfolioClient />
       </main>
     </>

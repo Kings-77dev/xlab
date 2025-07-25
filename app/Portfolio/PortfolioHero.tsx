@@ -72,7 +72,7 @@ export default function PortfolioHero({
   onSelect,
 }: PortfolioHeroProps) {
   return (
-    <section className="bg-[#111] text-white py-20 px-6 md:px-12">
+    <section className="bg-background text-white py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <h1 className="text-6xl md:text-8xl font-bold leading-tight">
@@ -95,7 +95,7 @@ export default function PortfolioHero({
                 aria-pressed={isActive}
                 className={`px-6 py-3 rounded-full text-sm font-medium transition ${
                   isActive
-                    ? "bg-white text-black border-2 border-blue-500"
+                    ? "bg-primary text-white border-2 border-gray-400"
                     : "border border-gray-700 text-white hover:bg-gray-800"
                 }`}
               >
