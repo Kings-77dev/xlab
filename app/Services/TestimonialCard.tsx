@@ -8,14 +8,20 @@ export interface Testimonial {
   rating?: number; // 0–5 stars
 }
 
-export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+export default function TestimonialCard({
+  testimonial,
+}: {
+  testimonial: Testimonial;
+}) {
   return (
-    <div className="flex-shrink-0 w-80 md:w-96 bg-black border border-gray-800 rounded-2xl p-6 shadow-lg mx-4">
+    <div className="flex-shrink-0 w-[90vw] sm:w-80 md:w-96 bg-black border border-gray-800 rounded-2xl p-6 shadow-lg mx-4">
       {/* quote icon */}
       <div className="text-4xl text-gray-200 mb-4">“</div>
 
       {/* quote text */}
-      <p className="text-foreground mb-4 leading-relaxed">{testimonial.quote}</p>
+      <p className="text-foreground mb-4 leading-relaxed">
+        {testimonial.quote}
+      </p>
 
       {/* stars */}
       {testimonial.rating != null && (
@@ -23,11 +29,15 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
           {Array.from({ length: 5 }).map((_, i) => (
             <svg
               key={i}
-              className={`h-5 w-5 ${testimonial.rating !== undefined && i < testimonial.rating ? "text-yellow-400" : "text-gray-300"}`}
+              className={`h-5 w-5 ${
+                i < (testimonial.rating ?? 0)
+                  ? "text-yellow-400"
+                  : "text-gray-300"
+              }`}
               fill="currentColor"
               viewBox="0 0 20 20"
             >
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.165c.969 0 1.371 1.24.588 1.81l-3.374 2.455a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.374-2.455a1 1 0 00-1.176 0l-3.374 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.06 9.384c-.783-.57-.38-1.81.588-1.81h4.165a1 1 0 00.95-.69l1.286-3.957z"/>
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.165c.969 0 1.371 1.24.588 1.81l-3.374 2.455a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.374-2.455a1 1 0 00-1.176 0l-3.374 2.455c-.784.57-1.838-.197-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.06 9.384c-.783-.57-.38-1.81.588-1.81h4.165a1 1 0 00.95-.69l1.286-3.957z" />
             </svg>
           ))}
         </div>
@@ -36,7 +46,12 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
       {/* author info */}
       <div className="flex items-center space-x-4">
         <div className="w-12 h-12 rounded-full overflow-hidden">
-          <Image src={testimonial.avatar} alt={testimonial.author} width={48} height={48} />
+          <Image
+            src={testimonial.avatar}
+            alt={testimonial.author}
+            width={48}
+            height={48}
+          />
         </div>
         <div>
           <p className="font-semibold">{testimonial.author}</p>

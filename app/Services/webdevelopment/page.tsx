@@ -1,10 +1,10 @@
 // app/services/web-development/page.tsx
 import type { Metadata } from 'next';
-import WebDevHero from '../webdesign/WebDevHero';
+import WebDevHero from './WebDevHero';
 import WebDevFeatures from './WebDevFeatures';
 import WhyPartner from '@/app/components/WhyPartner';
 import HowWeWork from '@/app/components/HowWeWork';
-import WebDevCTA from '../webdesign/WebDevCTA';
+import WebDevCTA from './WebDevCTA';
 
 
 export const metadata: Metadata = {

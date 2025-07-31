@@ -32,7 +32,6 @@
 // //   );
 // // }
 
-
 // // components/ServicesHero.tsx
 // "use client";
 
@@ -76,7 +75,7 @@ import Link from "next/link";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
-  show:  { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 export default function ServicesHero() {
@@ -92,7 +91,7 @@ export default function ServicesHero() {
       <div className="max-w-7xl mx-auto">
         {/* Nav indicator */}
         <div className="flex items-center space-x-2 mb-6">
-          <span className="w-2 h-2 bg-primary rounded-full inline-block" />
+          <span className="inline-block w-2 h-2 rounded-full bg-primary blink-dot" />{" "}
           <span className="text-sm text-gray-400">All Services</span>
         </div>
 
@@ -104,8 +103,8 @@ export default function ServicesHero() {
 
         {/* Subheading */}
         <p className="mt-4 text-lg md:text-xl max-w-2xl text-gray-400">
-          We create smart, modern websites built to grow your business. From full redesigns
-          to ongoing support — we’ve got you covered.
+          We create smart, modern websites built to grow your business. From
+          full redesigns to ongoing support — we’ve got you covered.
         </p>
 
         {/* CTA */}

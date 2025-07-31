@@ -67,7 +67,7 @@ export default function ContactHero() {
         <div className="flex items-center space-x-2 mb-6">
           {loaded ? (
             <>
-              <span className="w-2 h-2 bg-primary rounded-full inline-block" />
+          <span className="inline-block w-2 h-2 rounded-full bg-primary blink-dot" />{" "}
               <span className="text-sm text-gray-400">Contact</span>
             </>
           ) : (

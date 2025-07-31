@@ -90,8 +90,7 @@ export default function SEOHero() {
       <div className="max-w-7xl mx-auto">
         {/* Nav indicator dot + label */}
         <div className="flex items-center space-x-2 mb-6">
-          <span className="inline-block w-2 h-2 rounded-full bg-primary" />
-          <span className="text-sm text-gray-400">SEO</span>
+<span className="inline-block w-2 h-2 rounded-full bg-primary blink-dot" />          <span className="text-sm text-gray-400">SEO</span>
         </div>
 
         {/* Headline */}

@@ -1,5 +1,3 @@
-
-
 // components/ServicesHero.tsx
 "use client";
 
@@ -24,7 +22,7 @@ export default function ServicesHero() {
       <div className="max-w-6xl mx-auto">
         {/* Nav indicator */}
         <div className="flex items-center space-x-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-primary" />
+          <span className="inline-block w-2 h-2 rounded-full bg-primary blink-dot" />{" "}
           <span className="text-sm text-gray-500">Services</span>
         </div>
 

@@ -52,9 +52,6 @@
 //   );
 // }
 
-
-
-
 // components/WebDesignHero.tsx
 "use client";
 
@@ -93,7 +90,7 @@ export default function WebDesignHero() {
         <div className="flex items-center space-x-2 mb-6">
           {loaded ? (
             <>
-              <span className="w-2 h-2 bg-primary rounded-full inline-block" />
+              <span className="inline-block w-2 h-2 rounded-full bg-primary blink-dot" />{" "}
               <span className="text-sm text-gray-400">Web Design</span>
             </>
           ) : (
@@ -116,7 +113,8 @@ export default function WebDesignHero() {
         {/* Subheading */}
         {loaded ? (
           <p className="mt-4 text-lg md:text-xl max-w-2xl text-gray-400">
-            We craft responsive, user-friendly websites that engage your audience and strengthen your brand online.
+            We craft responsive, user-friendly websites that engage your
+            audience and strengthen your brand online.
           </p>
         ) : (
           <div className="mt-4 h-4 w-1/2 rounded bg-gray-700 animate-pulse" />
